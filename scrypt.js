@@ -11,19 +11,11 @@ let timeRef = () => {
     let mm = day.getMinutes();
     let sec = day.getSeconds();
 
-    hr.style.transform = `rotateZ(${hh * 30 + (mm / 12)}deg)`
-    mn.style.transform = `rotateZ(${mm * 6}deg)`
-    sc.style.transform = `rotateZ(${sec * 6}deg)`
-    if(hh < 10 ){
-        hh = '0' + hh;
-    }
-    if(mm < 10 ){
-        mm = '0' + mm;
-    }
-    if(sec < 10 ){
-        sec = '0' + sec;
-    }
-    diClock.innerHTML = `${hh} : ${mm} : ${sec}`
+    hr.style.transform = `rotateZ(${hh * 30 + (mm / 12)}deg)`;
+    mn.style.transform = `rotateZ(${mm * 6}deg)`;
+    sc.style.transform = `rotateZ(${sec * 6}deg)`;
+
+    diClock.innerHTML = day.toLocaleTimeString();
 }
 
 setInterval(timeRef, 1000)
